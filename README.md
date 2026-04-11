@@ -19,6 +19,37 @@ This project connects patients, doctors, and clinic administrators via three ded
 
 ---
 
+## 📂 Project Structure
+
+This project follows a modern micro-monorepo design, cleanly separating concerns:
+
+```text
+MediCare-Application/
+├── 📁 admin/                 # Internal Admin Dashboard (React + Vite)
+│   ├── src/
+│   │   ├── components/       # Reusable admin UI elements
+│   │   └── pages/            # Views for managing Doctors & Services
+│   └── .env                  # Admin environment keys
+│
+├── 📁 backend/               # Server-side REST API (Node.js + Express)
+│   ├── config/               # Database connection logic
+│   ├── controllers/          # Business logic (e.g., adding doctors)
+│   ├── middlewares/          # Clerk authentication logic
+│   ├── models/               # MongoDB Data schemas
+│   ├── routes/               # API endpoints
+│   ├── utils/                # Cloudinary upload helpers
+│   └── index.js              # Main server entry point
+│
+└── 📁 frontend/              # Public Patient Website (React + Vite)
+    ├── src/
+    │   ├── components/       # Reusable patient UI (Navbar, Footer, etc.)
+    │   ├── pages/            # Homepage, Doctor List, Booking Views
+    │   └── doctor/           # Specialized portal views for Doctors
+    └── .env                  # Frontend environment keys
+```
+
+---
+
 ## 🔑 Environment Variables Setup (.env Files)
 
 To run this project on any system, you **must** create three separate `.env` files in their respective folders. Below is the exact blueprint of what goes inside each one:
