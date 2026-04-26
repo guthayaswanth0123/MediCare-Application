@@ -1,6 +1,9 @@
 // src/App.jsx
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { SignedIn } from "@clerk/clerk-react";
 
 // Pages
 import Home from "./pages/Home/Home";
@@ -11,6 +14,7 @@ import DoctorDetail from "./pages/DoctorDetail/DoctorDetail";
 import ServiceDetailPage from "./pages/ServiceDetailPage/ServiceDetailPage";
 import Appointments from "./pages/Appointments/Appointments";
 import Login from "./pages/Login/Login";
+import Chatbot from "./components/Chatbot/Chatbot";
 
 // Doctor Admin
 import DHome from "./pages/DHome/DHome";
@@ -77,6 +81,7 @@ const App = () => {
   return (
     <>
       <ScrollToTop />
+      <ToastContainer />
 
       <div className="overflow-x-hidden bg-white text-gray-900">
         <Routes>
@@ -113,6 +118,10 @@ const App = () => {
           />
         </Routes>
       </div>
+      
+      <SignedIn>
+        <Chatbot />
+      </SignedIn>
 
       <ScrollButton />
     </>

@@ -175,7 +175,7 @@ export default function AnimatedNavbar() {
           <div className={ns.logoContainer}>
             <img
               src={logoImg}
-              alt="Medtek"
+              alt="Medicare"
               className={ns.logoImage}
             />
             <Link to="/">
