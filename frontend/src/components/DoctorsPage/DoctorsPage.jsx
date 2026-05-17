@@ -69,6 +69,7 @@ const API_BASE = apiBase || import.meta.env.VITE_API_URL || "http://localhost:40
         if (mounted) {
           setAllDoctors(normalized);
           setError("");
+          setLoading(false);
         }
       } catch (err) {
         console.error("load doctors error:", err);
