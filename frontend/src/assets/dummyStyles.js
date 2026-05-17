@@ -16,8 +16,8 @@ export const appointmentPageStyles = {
   serviceEmptyStateText: "text-center text-blue-600 py-4",
   
   // Grid layouts
-  doctorGrid: "grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12",
-  serviceGrid: "grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-10",
+  doctorGrid: "w-full mx-auto grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12",
+  serviceGrid: "w-full mx-auto grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-10",
 };
 
 export const cardStyles = {
@@ -314,15 +314,15 @@ export const doctorsPageStyles = {
   retryButton: "px-4 py-2 rounded-full bg-emerald-600 text-white",
   
   // Loading skeleton
-  skeletonGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8",
-  skeletonCard: "animate-pulse bg-white/80 backdrop-blur-md rounded-3xl p-4 sm:p-5 md:p-6 text-center transition-all duration-300",
+  skeletonGrid: "w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8",
+  skeletonCard: "w-full mx-auto animate-pulse bg-white/80 backdrop-blur-md rounded-3xl p-4 sm:p-5 md:p-6 text-center transition-all duration-300",
   skeletonImage: "relative mx-auto mb-4 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-36 lg:h-36 bg-emerald-100 rounded-full",
   skeletonName: "h-5 bg-emerald-100 rounded w-3/4 mx-auto mb-2",
   skeletonSpecialization: "h-4 bg-emerald-100 rounded w-1/2 mx-auto mb-3",
   skeletonButton: "h-8 bg-emerald-100 rounded w-full mx-auto mt-4",
   
   // Doctors grid
-  doctorsGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8 transition-all duration-300",
+  doctorsGrid: "w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8 transition-all duration-300",
   
   // Doctor card
   doctorCard: "bg-white/80 backdrop-blur-md rounded-3xl p-4 sm:p-5 md:p-6 text-center transition-all duration-300 hover:shadow-xl animate-fade-in-up",
@@ -490,15 +490,15 @@ export const homeDoctorsStyles = {
   retryButton: "px-4 py-2 rounded-full bg-emerald-600 text-white",
   
   // Loading skeleton
-  skeletonGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8",
-  skeletonCard: "animate-pulse bg-white rounded-3xl shadow-md p-4 h-72",
+  skeletonGrid: "w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8",
+  skeletonCard: "w-full mx-auto animate-pulse bg-white rounded-3xl shadow-md p-4 h-72",
   skeletonImage: "bg-emerald-100 rounded-lg h-40 mb-4",
   skeletonText1: "h-5 bg-emerald-100 rounded w-3/4 mb-2",
   skeletonText2: "h-4 bg-emerald-100 rounded w-1/2 mb-3",
   skeletonButton: "h-8 w-full bg-emerald-100 rounded",
   
   // Doctors grid
-  doctorsGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8",
+  doctorsGrid: "w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8",
   
   // Doctor card
   article: "group relative bg-white rounded-3xl shadow-md hover:shadow-2xl transition transform duration-300 overflow-hidden",
@@ -774,15 +774,15 @@ export const servicePageStyles = {
   retryButton: "px-4 py-2 rounded-full bg-emerald-600 text-white",
   
   // Loading skeleton
-  skeletonGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8",
-  skeletonCard: "animate-pulse group rounded-2xl overflow-hidden bg-white shadow-xl p-4",
+  skeletonGrid: "w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8",
+  skeletonCard: "w-full mx-auto animate-pulse group rounded-2xl overflow-hidden bg-white shadow-xl p-4",
   skeletonImage: "w-full h-48 bg-emerald-100 rounded mb-4",
   skeletonText1: "h-5 bg-emerald-100 rounded w-3/4 mx-auto mb-2",
   skeletonText2: "h-4 bg-emerald-100 rounded w-1/2 mx-auto mb-4",
   skeletonButton: "h-10 bg-emerald-100 rounded w-full",
   
   // Services grid
-  servicesGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8",
+  servicesGrid: "w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8",
   
   // Empty state
   emptyState: "col-span-full text-center py-10 text-emerald-800 font-medium text-base",
