@@ -7,14 +7,14 @@ import { homeDoctorsStyles, iconSize } from "../../assets/dummyStyles";
 
 const HomeDoctors = ({ apiBase, previewCount = 8 }) => {
   const API_BASE =
-    apiBase || "http://localhost:4000";
+    apiBase || import.meta.env.VITE_API_URL || "http://localhost:4000";
 
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   // ✅ FIXED FETCH WITH PROPER RETRY
-  const fetchDoctors = async (retryCount = 3) => {
+  const fetchDoctors = async (retryCount = 15) => {
     try {
       const res = await fetch(`${API_BASE}/api/doctors`, {
         method: "GET",
@@ -64,11 +64,11 @@ const HomeDoctors = ({ apiBase, previewCount = 8 }) => {
       console.log("Retrying...", retryCount);
 
       if (retryCount > 0) {
-        setError("Server is waking up... please wait ⏳");
+        setError("Server is waking up... this may take up to a minute ⏳");
 
         setTimeout(() => {
           fetchDoctors(retryCount - 1);
-        }, 2000);
+        }, 4000);
       } else {
         setError("Failed to load doctors. Please try again.");
         setDoctors([]);

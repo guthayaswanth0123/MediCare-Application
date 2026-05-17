@@ -314,7 +314,7 @@ export const doctorsPageStyles = {
   retryButton: "px-4 py-2 rounded-full bg-emerald-600 text-white",
   
   // Loading skeleton
-  skeletonGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8",
+  skeletonGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 sm:gap-8",
   skeletonCard: "animate-pulse bg-white/80 backdrop-blur-md rounded-3xl p-4 sm:p-5 md:p-6 text-center transition-all duration-300",
   skeletonImage: "relative mx-auto mb-4 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-36 lg:h-36 bg-emerald-100 rounded-full",
   skeletonName: "h-5 bg-emerald-100 rounded w-3/4 mx-auto mb-2",
@@ -774,11 +774,11 @@ export const servicePageStyles = {
   retryButton: "px-4 py-2 rounded-full bg-emerald-600 text-white",
   
   // Loading skeleton
-  skeletonGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8",
+  skeletonGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8",
   skeletonCard: "animate-pulse group rounded-2xl overflow-hidden bg-white shadow-xl p-4",
   skeletonImage: "w-full h-48 bg-emerald-100 rounded mb-4",
-  skeletonText1: "h-5 bg-emerald-100 rounded w-3/4 mb-2",
-  skeletonText2: "h-4 bg-emerald-100 rounded w-1/2 mb-4",
+  skeletonText1: "h-5 bg-emerald-100 rounded w-3/4 mx-auto mb-2",
+  skeletonText2: "h-4 bg-emerald-100 rounded w-1/2 mx-auto mb-4",
   skeletonButton: "h-10 bg-emerald-100 rounded w-full",
   
   // Services grid

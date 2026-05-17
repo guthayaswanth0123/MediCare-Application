@@ -190,7 +190,7 @@ export const createServiceAppointment = async (req, res) => {
                 name: `Service: ${String(resolvedServiceName).slice(0, 60)}`,
                 description: `Appointment on ${base.date} ${base.hour}:${String(base.minute).padStart(2, "0")} ${base.ampm}`,
               },
-              unit_amount: Math.round(numericAmount * 100),
+              unit_amount: Math.round(Math.max(numericAmount, 50) * 100),
             },
             quantity: 1,
           },

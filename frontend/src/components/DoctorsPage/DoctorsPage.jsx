@@ -12,7 +12,7 @@ import {
 import { doctorsPageStyles } from "../../assets/dummyStyles";
 
 const DoctorsPage = ({ apiBase }) => {
-const API_BASE = apiBase || "http://localhost:4000";
+const API_BASE = apiBase || import.meta.env.VITE_API_URL || "http://localhost:4000";
 
   const [allDoctors, setAllDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,23 +23,19 @@ const API_BASE = apiBase || "http://localhost:4000";
   // Load doctors once
   useEffect(() => {
     let mounted = true;
-    async function load() {
+    async function load(retryCount = 15) {
       setLoading(true);
       setError("");
       try {
         const res = await fetch(`${API_BASE}/api/doctors`);
-        const json = await res.json().catch(() => null);
-
+        
         if (!res.ok) {
-          const msg =
-            (json && json.message) || `Failed to load doctors (${res.status})`;
-          if (mounted) {
-            setError(msg);
-            setAllDoctors([]);
-            setLoading(false);
+          if (res.status === 502 || res.status === 503 || !res.ok) {
+            throw new Error(`Server waking up (${res.status})`);
           }
-          return;
         }
+        
+        const json = await res.json().catch(() => null);
 
         const items = (json && (json.data || json)) || [];
         const normalized = (Array.isArray(items) ? items : []).map((d) => {
@@ -77,11 +73,17 @@ const API_BASE = apiBase || "http://localhost:4000";
       } catch (err) {
         console.error("load doctors error:", err);
         if (mounted) {
-          setError("Network error while loading doctors.");
-          setAllDoctors([]);
+          if (retryCount > 0) {
+            setError("Server is waking up... this may take up to a minute ⏳");
+            setTimeout(() => {
+              if (mounted) load(retryCount - 1);
+            }, 4000);
+          } else {
+            setError("Network error while loading doctors.");
+            setAllDoctors([]);
+            setLoading(false);
+          }
         }
-      } finally {
-        if (mounted) setLoading(false);
       }
     }
     load();

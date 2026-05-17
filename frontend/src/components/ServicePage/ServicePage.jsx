@@ -108,26 +108,26 @@ const ServiceCard = ({ service }) => {
 };
 
 export default function ServicePage({ apiBase, previewCount = 9999 }) {
-  const API_BASE = apiBase || "http://localhost:4000";
+  const API_BASE = apiBase || import.meta.env.VITE_API_URL || "http://localhost:4000";
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  async function loadServices() {
+  async function loadServices(retryCount = 15) {
     setLoading(true);
     setError("");
     try {
       const res = await fetch(`${API_BASE}/api/services`);
+      
+      if (!res.ok) {
+        if (res.status === 502 || res.status === 503 || !res.ok) {
+          throw new Error(`Server waking up (${res.status})`);
+        }
+      }
+
       const json = await res.json().catch(() => null);
 
-      if (!res.ok) {
-        const msg =
-          (json && json.message) || `Failed to load services (${res.status})`;
-        setError(msg);
-        setServices([]);
-        setLoading(false);
-        return;
-      }
+
 
       const items = (json && (json.data || json)) || [];
       const normalized = (Array.isArray(items) ? items : []).map((s) => {
@@ -157,12 +157,19 @@ export default function ServicePage({ apiBase, previewCount = 9999 }) {
       });
 
       setServices(normalized);
+      setLoading(false);
     } catch (err) {
       console.error("load services error:", err);
-      setError("Network error while loading services.");
-      setServices([]);
-    } finally {
-      setLoading(false);
+      if (retryCount > 0) {
+        setError("Server is waking up... this may take up to a minute ⏳");
+        setTimeout(() => {
+          loadServices(retryCount - 1);
+        }, 4000);
+      } else {
+        setError("Network error while loading services.");
+        setServices([]);
+        setLoading(false);
+      }
     }
   }
 

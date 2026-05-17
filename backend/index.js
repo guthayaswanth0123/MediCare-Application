@@ -18,11 +18,8 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:5175",
-  "https://medicare-project-ten.vercel.app",
-  "https://medicare-project-tuwu.vercel.app",
-  "https://medicare-project-tuwu-git-main-rias-projects-fb1aa269.vercel.app"
+  "https://medi-care-application.vercel.app"
 ];
-
 // app.use(
 //   cors({
 //     origin: function (origin, callback) {
@@ -82,9 +79,9 @@ app.use("/api/service-appointments", serviceAppointmentRouter);
 
 // Test route
 app.get('/', (req, res) => {
-    res.send('API Working ');
+  res.send('API Working ');
 });
 
 app.listen(port, () => {
-    console.log(`Server Started on http://localhost:${port}`);
+  console.log(`Server Started on http://localhost:${port}`);
 });

@@ -249,7 +249,7 @@ export default function DoctorDetailPage() {
       if (form.imageFile) fd.append("image", form.imageFile);
 
       //const API_BASE = "http://localhost:4000/api";
-      const API_BASE = "http://localhost:4000";
+      const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
       const res = await fetch(`${API_BASE}/api/doctors`, {
         method: "POST",
