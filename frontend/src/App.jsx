@@ -68,22 +68,13 @@ const ScrollButton = () => {
 
 /* ================= Main App ================= */
 const App = () => {
-  // Lock horizontal overflow globally
-  useEffect(() => {
-    document.body.style.overflowX = "hidden";
-    document.documentElement.style.overflowX = "hidden";
-    return () => {
-      document.body.style.overflowX = "auto";
-      document.documentElement.style.overflowX = "auto";
-    };
-  }, []);
 
   return (
     <>
       <ScrollToTop />
       <ToastContainer />
 
-      <div className="overflow-x-hidden bg-white text-gray-900">
+      <div className="overflow-x-hidden w-full max-w-[100vw] bg-white text-gray-900">
         <Routes>
           {/* Public */}
           <Route path="/" element={<Home />} />
